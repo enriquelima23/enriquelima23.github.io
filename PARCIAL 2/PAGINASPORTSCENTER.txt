@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sports Center </title> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            background-color: bisque;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .logo {
+            max-width: 200px;
+        }
+
+        ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+
+        ul button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contenido {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .producto {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .producto img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+     <header>
+       <H1>
+	<center><header style="background-color:bisque"><font size=7 face="Bodoni MT Black" color="black">---------------TIENDA DE ROPA DEPORTIVA---------------</font></header>
+       </H1>	
+        <center><a href="logomini.png"><img src="logo.png"alt="Foto del logotipo" title="Pulsa para agrandar"/></a></center>
+    </header>
+
+    <ul>
+        <button onclick="copy()">Inicio</button>
+        <button onclick="paste()">Marcas</button>
+        <button onclick="cut()">Productos</button>
+        <button onclick="paste()">Ubicación</button>
+        <button onclick="paste()">Redes Sociales</button>
+    </ul>
+
+  <header>
+       <H1>
+	<center><header style="background-color:black"><font size=6 face="Bodoni MT Black" color="lime">¡ANTES DE EMPEZAR...CONOZCAMOS A NUESTROS CLIENTES!</font></header>
+       </H1>	
+    </header>
+
+<div style="text-align: center;">
+	<font size=5>
+    <form id="customerForm">
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo">
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" min="1" max="99"><br><br>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+
+        <label>¿Qué marcas prefieres?</label><br>
+        <input type="checkbox" id="marcaNike" name="marcas" value="Nike">
+        <label for="marcaNike">Nike</label>
+
+        <input type="checkbox" id="marcaAdidas" name="marcas" value="Adidas">
+        <label for="marcaAdidas">Adidas</label>
+
+        <input type="checkbox" id="marcaPuma" name="marcas" value="Puma">
+        <label for="marcaPuma">Puma</label>
+
+        <input type="checkbox" id="marcaWilson" name="marcas" value="Wilson">
+        <label for="marcaWilson">Wilson</label><br><br>
+
+        <input type="button" value="Enviar" onclick="submitForm()">
+	</font>
+    </form>
+</div>
+
+<script>
+    function submitForm() {
+        // Aquí puedes agregar código para procesar la información del formulario
+        var sexo = document.getElementById("sexo").value;
+        var edad = document.getElementById("edad").value;
+        var nombre = document.getElementById("nombre").value;
+
+        var marcasSeleccionadas = [];
+        var checkboxes = document.getElementsByName("marcas");
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                marcasSeleccionadas.push(checkboxes[i].value);
+            }
+        }
+
+        // Puedes enviar esta información a un servidor o realizar otras acciones según tus necesidades
+        console.log("Sexo: " + sexo);
+        console.log("Edad: " + edad);
+        console.log("Nombre: " + nombre);
+        console.log("Marcas preferidas: " + marcasSeleccionadas.join(", "));
+
+        // Limpiar los campos del formulario para nuevos datos
+        document.getElementById("sexo").value = "masculino";
+        document.getElementById("edad").value = "";
+        document.getElementById("nombre").value = "";
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
+    }
+</script>
+
+  <H1>
+	<center><header style="background-color:black"><font size=6 face="Bodoni MT Black" color="lime">¡GRACIAS...TU OPINION ES MUY IMPORTANTE!</font></header>
+       </H1>	
+    </header>
+
+    <div>
+        <header style="background-color: MediumPurple; text-align: center;">
+            <p style="color: white;">"Todo lo que te puedas imaginar lo tenemos para ti..."</p>
+        </header>
+    </div>
+
+    <div>
+        <h1 style="text-align: center; font-size: 28px; font-family: Arial Black; color: teal;">¡NUESTROS PRODUCTOS!</h1>
+    </div>
+
+
+    <div>
+        <h1 style="text-align: center; font-size: 24px; font-family: Arial Black; color: SteelBlue;">¡TENNIS!</h1>
+    </div>
+
+<script>
+    function mostrarVentanaCompra(producto, precio) {
+        var cantidad = prompt("Ingrese la cantidad de '" + producto + "' que desea comprar:", "1");
+
+        if (cantidad !== null && !isNaN(cantidad) && cantidad > 0) {
+            var total = precio * cantidad;
+            alert("Producto: " + producto + "\nPrecio unitario: $" + precio + "\nCantidad: " + cantidad + "\nTotal: $" + total);
+        } else {
+            alert("Por favor, ingrese una cantidad válida.");
+        }
+    }
+</script>
+
+    <center>
+        <div>
+            <section class="contenido">
+                <div class="producto">
+                    <a href="tenimini.png"><img src="teni.png" alt="Foto del teni" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">NIKE MODELO 1</p>
+                    <span class="precio">$1,300</span>
+               <br><br><button onclick="mostrarVentanaCompra('NIKE MODELO 1', 1300)">Comprar</button></br></br>
+                </div>
+
+                <div class="producto">
+                    <a href="tenimini2.png"><img src="teni2.png" alt="Foto del teni 2" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">NIKE MODELO 2</p>
+                    <span class="precio">$2,500</span>
+               <br><br><button onclick="mostrarVentanaCompra('NIKE MODELO 2', 2500)">Comprar</button></br></br>
+                </div>
+
+                <div class="producto">
+                    <a href="pumamini2.png"><img src="puma2.png" alt="Foto del teni 3" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">PUMA MODELO 1</p>
+                    <span class="precio">$1,800</span>
+               <br><br><button onclick="mostrarVentanaCompra('PUMA MODELO 1', 1800)">Comprar</button></br></br>
+                </div>
+
+                <div class="producto">
+                    <a href="pumamini3.png"><img src="puma3.png" alt="Foto del teni 4" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">PUMA MODELO 2</p>
+                    <span class="precio">$4,500</span>
+               <br><br><button onclick="mostrarVentanaCompra('PUMA MODELO 2', 4500)">Comprar</button></br></br>
+                </div>
+
+                <div class="producto">
+                    <a href="adidasmini1.png"><img src="adidas1.png" alt="Foto del teni 5" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">ADIDAS MODELO 1</p>
+                    <span class="precio">$3,800</span>
+               <br><br><button onclick="mostrarVentanaCompra('ADIDAS MODELO 1', 3800)">Comprar</button></br></br>
+                </div>
+
+                <div class="producto">
+                    <a href="adidasmini2.png"><img src="adidas2.png" alt="Foto del teni 6" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">ADIDAS MODELO 2</p>
+                    <span class="precio">$4,500</span>
+               <br><br><button onclick="mostrarVentanaCompra('ADIDAS MODELO 2', 4500)">Comprar</button></br></br>
+ 		</div>
+            </section>
+        </div>
+    </center>
+   <div>
+        <h1 style="text-align: center; font-size: 24px; font-family: Arial Black; color: SteelBlue;">¡ROPA Y ACCESORIOS!</h1>
+    </div>
+
+    <center>
+        <div>
+            <section class="contenido">
+                <div class="producto">
+                    <a href="playeramini1.png"><img src="playera1.png" alt="Foto de la playera" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">PLAYERA PUMA </p>
+                    <span class="precio">$750</span>
+               <br><br><button onclick="mostrarVentanaCompra('PLAYERA PUMA', 750)">Comprar</button></br></br>
+                </div>
+
+                <div class="producto">
+                    <a href="playeramini.png"><img src="playera.png" alt="Foto de la playera" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion"> PLAYERA PUMA MONTERREY</p>
+                    <span class="precio">$2,500</span>
+               <br><br><button onclick="mostrarVentanaCompra('PLAYERA PUMA MONTERREY', 2500)">Comprar</button></br></br>
+                </div>
+
+                <div class="producto">
+                    <a href="playeramini3.png"><img src="playera3.png" alt="Foto de la playera 3" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">PLAYERA CLUB AMERICA </p>
+                    <span class="precio">$2,800</span>
+               <br><br><button onclick="mostrarVentanaCompra('PLAYERA CLUB AMERICA', 2800)">Comprar</button></br></br>
+                </div>
+
+                <div class="producto">
+                    <a href="pansmini.png"><img src="pans.png" alt="Foto del pans" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">PANS NIKE </p>
+                    <span class="precio">$1,800</span>
+               <br><br><button onclick="mostrarVentanaCompra('PANS NIKE', 1800)">Comprar</button></br></br>
+                </div>
+
+                <div class="producto">
+                    <a href="gorramini.png"><img src="gorra.png" alt="Foto de gorra" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">GORRA ADIDAS</p>
+                    <span class="precio">$900</span>
+               <br><br><button onclick="mostrarVentanaCompra('GORRA ADIDAS', 900)">Comprar</button></br></br>
+                </div>
+
+	        <div class="producto">
+                    <a href="micoachmini.png"><img src="micoach.png" alt="Foto del coach" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">ENTRENADOR MI COACH</p>
+                    <span class="precio">$3,800</span>
+               <br><br><button onclick="mostrarVentanaCompra('ENTRENADOR MI COACH', 3800)">Comprar</button></br></br>
+                </div>
+
+	        <div class="producto">
+                    <a href="mochilamini.png"><img src="mochila.png" alt="Foto de la mochila" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">MOCHILA WILSON</p>
+                    <span class="precio">$2,400</span>
+               <br><br><button onclick="mostrarVentanaCompra('MOCHILA WILSON', 2400)">Comprar</button></br></br>
+                </div>
+
+	        <div class="producto">
+                    <a href="calcetasmini.png"><img src="calcetas.png" alt="Foto de las calcetas" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">CALCETAS MINI</p>
+                    <span class="precio">$500</span>
+               <br><br><button onclick="mostrarVentanaCompra('CALCETAS MINI', 500)">Comprar</button></br></br>
+                </div>
+
+	        <div class="producto">
+                    <a href="balonmini.png"><img src="balon.png" alt="Foto del balon" title="Pulsa para agrandar"/></a>
+                    <p class="descripcion">PELOTA DE BALONCESTO</p>
+                    <span class="precio">$900</span>
+               <br><br><button onclick="mostrarVentanaCompra('PELOTA DE BALONCESTO', 900)">Comprar</button></br></br>
+		</div>
+            </section>
+        </div>
+    </center>
+
+ <header>
+
+	<div style="text-align: center;">
+   	 <form id="opinionForm">
+          <label for="opinion"><center><header style="background-color:#2E7EB9"><font size=6 face="Bodoni MT Black" color="White">"TU OPINION ES IMPORTANTE"</font></header></label><br>
+           <textarea id="opinion" name="opinion" rows="4" cols="50"></textarea><br><br>
+        <input type="button" value="Enviar Opinión" onclick="enviarOpinion()"><br></br>
+  <label for="opinion"><center><header style="background-color:#2E7EB9"><font size=6 face="Bodoni MT Black" color="#2E7EB9">""</font></header></label><br>
+         </form>
+	</div>	
+<script>
+function enviarOpinion() {
+    var opinion = document.getElementById("opinion").value;
+    document.getElementById("opinion").value = "";
+    alert("Gracias por tu opinión. ¡Valoramos tu honestidad!");
+			 }
+</script>
+
+
+
+ 	<div>
+        <center><H1><font size=5 face="arial black" color="SteelBlue">!NUESTRAS MARCAS¡</font></H1></center>
+	</div>
+
+	<br>
+	<div>
+        <center>
+          <a href="https://www.youtube.com/watch?v=6p4SeR3pliM&t=11s"><img src="nike.png" alt="Foto del logoripo Nike" title="click para direccionar"/>
+	  <a href="https://www.youtube.com/watch?v=g971aorJa6U"><img src="adidas.png" alt="Foto del logoripo Adidas" title="click para direccionar"/>
+	  <a href="https://www.youtube.com/watch?v=fx9H1AaMbRc"><img src="puma.png" alt="Foto del logoripo de Puma" title="click para direccionar"/>
+	  <a href="https://www.youtube.com/watch?v=EsFrSUpVFRk"><img src="wilson.png" alt="Foto del logoripo wilson" title="click para direccionar"/>
+	</center>
+	</div>
+	</br>
+
+       <div>
+        <center>
+         <br><center><H1><font size=5 face="arial black" color="SteelBlue">!UBICACION¡</font></H1></center></br>
+         <br><a href="https://www.google.com.mx/maps/@19.439344,-99.087747,15z?entry=ttu"><img src="mapa.png" alt="Foto del mapa de ubicacion" title="click para direccionar"/></br>
+        </center>
+       </div>
+
+       <div>
+        <br><center><H1><font size=5 face="arial black" color="SteelBlue">!REDES SOCIALES¡</font></H1></center></br>
+       </div>
+        
+       <div> 
+        <center>      
+        <a href="https://www.facebook.com/?locale=es_LA"><img src="faceebook.png" alt="Facebook" title="click para direccionar"/>
+	<a href="https://www.instagram.com/"><img src="insta.png" alt="Instagram" title="click para direccionar"/>
+	<a href="https://web.whatsapp.com/"><img src="wat.png" alt="WhastApp" title="click para direccionar"/>
+        </center> 
+	</br>
+       </div>
+
+       <div>
+        <header style="background-color: CadetBlue; text-align: center;">
+         <B><br><p style="color: black;">"Esta pagina fue creada con fines educativos"</p>
+         <br><p style="color: black;">"Los productos y articulos que aparecen en dicha pagina son exclusivos de las marcas oficiales registradas:"</p></br>
+         <p style="color: black;">-Nike Factory</p>
+         <p style="color: black;">-Adidas</p>
+         <p style="color: black;">-Puma</p>
+         <p style="color: black;">-Wilson</p><br>
+         <p style="color: black;"> Pagina elaborada por: Lima León Luis Enrique</p>
+         <p style="color: black;"> Boleta:2021601192</p>
+         <p style="color: black;"> Materia: Programacion Web</p></B>
+        </header>
+       </div>
+
+</body>
+</html>
